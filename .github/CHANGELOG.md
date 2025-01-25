@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.0 (2025-01-25)
+
+
+### Features
+
+* Add initial Terraform configuration and templates for GitHub integration ([5047ec4](https://github.com/IbdaaiCloud/terraform-github-team/commit/5047ec48768786ab1adc6bbaaf54390c9181974d))
+
+
+### Bug Fixes
+
+* change team_repository_permissions to require lists for all permission types ([0a27456](https://github.com/IbdaaiCloud/terraform-github-team/commit/0a27456e9c6039a26e9df1a830bd0aa127575038))
+
 ### [1.0.6](https://github.com/IbdaaiCloud/terraform-github-repository-webhooks/compare/v1.0.5...v1.0.6) (2025-01-11)
 
 
