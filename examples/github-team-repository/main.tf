@@ -28,7 +28,8 @@ resource "github_repository" "js_dev_repo" {
 # GitHub Team Repository
 #---------------------------------------------------
 module "team_repository" {
-  source = "../../"
+  source = "IbdaaiCloud/team/github"
+  # version = "x.y.z" # Use the latest version from the Terraform Registry
 
   enable_repository_permissions = true
   team_repository_team_id       = github_team.qa_team.id

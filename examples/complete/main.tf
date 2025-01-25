@@ -20,7 +20,8 @@ resource "github_repository" "js_dev_repo" {
 # Module Team Configuration
 #---------------------------------------------------
 module "team_configuration" {
-  source = "../../"
+  source = "IbdaaiCloud/team/github"
+  # version = "x.y.z" # Use the latest version from the Terraform Registry
 
   #---------------------------------------------------
   # GitHub Team
