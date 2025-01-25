@@ -6,7 +6,7 @@
   <a href="https://github.com/IbdaaiCloud/terraform-github-team">
     <img src="https://img.shields.io/badge/github-%23181717.svg?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
   </a>
-  <a href="https://registry.terraform.io/modules/IbdaaiCloud/github-team/latest">
+  <a href="https://registry.terraform.io/modules/IbdaaiCloud/team/github/latest">
     <img src="https://img.shields.io/github/v/release/IbdaaiCloud/terraform-github-team?color=blue&label=terraform&logo=terraform&style=for-the-badge" alt="Terraform Registry"/>
   </a>
   <a href="https://github.com/IbdaaiCloud/terraform-github-team/releases">
