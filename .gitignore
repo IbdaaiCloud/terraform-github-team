@@ -1,0 +1,43 @@
+# Ignore Terraform-generated directories
+**/.terraform/*
+
+# Ignore Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Ignore crash log files
+crash.log
+crash.*.log
+
+# Ignore sensitive variable files
+*.tfvars
+*.tfvars.json
+
+# Include Terraform plan files
+*tfplan*
+
+# Ignore Terraform CLI configuration files
+.terraformrc
+terraform.rc
+
+# Ignore test files
+test
+tmp
+.tmp
+temp
+.temp
+
+# Ignore development and editor-specific files
+.*.sw?
+.idea
+terragrunt.iml
+vendor
+.terraform
+
+# Ignore additional Terraform-related files
+*.out
+.terragrunt-cache
+.bundle
+.ruby-version
+.terraform.lock.hcl
+terragrunt
