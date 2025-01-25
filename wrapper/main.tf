@@ -27,5 +27,11 @@ module "wrapper" {
   #---------------------------------------------------
   enable_repository_permissions = try(each.value.enable_repository_permissions, var.defaults.enable_repository_permissions, false)
   team_repository_team_id       = try(each.value.team_repository_team_id, var.defaults.team_repository_team_id, null)
-  team_repository_permissions   = try(each.value.team_repository_permissions, var.defaults.team_repository_permissions, {})
+  team_repository_permissions = {
+    admin    = try(each.value.team_repository_permissions.admin, var.defaults.team_repository_permissions.admin, [])
+    maintain = try(each.value.team_repository_permissions.maintain, var.defaults.team_repository_permissions.maintain, [])
+    push     = try(each.value.team_repository_permissions.push, var.defaults.team_repository_permissions.push, [])
+    triage   = try(each.value.team_repository_permissions.triage, var.defaults.team_repository_permissions.triage, [])
+    pull     = try(each.value.team_repository_permissions.pull, var.defaults.team_repository_permissions.pull, [])
+  }
 }

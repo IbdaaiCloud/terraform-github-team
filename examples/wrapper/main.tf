@@ -35,7 +35,8 @@ resource "github_repository" "security_repo" {
 # Module Team Configuration
 #---------------------------------------------------
 module "team_configuration_wrapper" {
-  source = "../../wrapper"
+  source = "IbdaaiCloud/team/github//wrapper"
+  # version = "x.y.z" # Use the latest version from the Terraform Registry
 
   defaults = {
     #---------------------------------------------------

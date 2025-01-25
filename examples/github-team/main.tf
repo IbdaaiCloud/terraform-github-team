@@ -2,7 +2,8 @@
 # GitHub Team
 #---------------------------------------------------
 module "team" {
-  source = "../../"
+  source = "IbdaaiCloud/team/github"
+  # version = "x.y.z" # Use the latest version from the Terraform Registry
 
   enable_team_creation           = true
   team_name                      = "DevOps"
