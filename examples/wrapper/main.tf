@@ -240,4 +240,3 @@ module "team_configuration_wrapper" {
     }
   }
 }
-
