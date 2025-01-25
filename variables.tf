@@ -130,11 +130,11 @@ EOF
 
 variable "team_repository_permissions" {
   type = object({
-    admin    = optional(list(string))
-    maintain = optional(list(string))
-    push     = optional(list(string))
-    triage   = optional(list(string))
-    pull     = optional(list(string))
+    admin    = list(string)
+    maintain = list(string)
+    push     = list(string)
+    triage   = list(string)
+    pull     = list(string)
   })
   description = <<EOF
   (Required) The list of repositories to add to the team with specific permissions. The key is the permission and the value is the list of repositories. The permissions must be one of `admin`, `maintain`, `push`, `triage`, or `pull`.
