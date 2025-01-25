@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.0](https://github.com/IbdaaiCloud/terraform-github-team/compare/v1.0.0...v2.0.0) (2025-01-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* Unexpected attribute: An attribute named "defaults" is not expected hereTerraform
+
+### Bug Fixes
+
+* remove .gitkeep ([b6795f8](https://github.com/IbdaaiCloud/terraform-github-team/commit/b6795f849275cec0b320dfe5fb8bf5df0a50954e))
+* Unexpected attribute: An attribute named "defaults" is not expected hereTerraform ([0ed5f5c](https://github.com/IbdaaiCloud/terraform-github-team/commit/0ed5f5c3323e68752785d92367815c3c22cf414c))
+
 ## 1.0.0 (2025-01-25)
 
 
