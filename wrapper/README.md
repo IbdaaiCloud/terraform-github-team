@@ -6,7 +6,7 @@
   <a href="https://github.com/IbdaaiCloud/terraform-github-team">
     <img src="https://img.shields.io/badge/github-%23181717.svg?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
   </a>
-  <a href="https://registry.terraform.io/modules/IbdaaiCloud/github-team/latest">
+  <a href="https://registry.terraform.io/modules/IbdaaiCloud/team/github/latest">
     <img src="https://img.shields.io/github/v/release/IbdaaiCloud/terraform-github-team?color=blue&label=terraform&logo=terraform&style=for-the-badge" alt="Terraform Registry"/>
   </a>
   <a href="https://github.com/IbdaaiCloud/terraform-github-team/releases">
@@ -28,7 +28,7 @@
 
 # Terraform GitHub Team Wrapper
 
-This repository is a wrapper for the [IbdaaiCloud/github-team](https://registry.terraform.io/modules/IbdaaiCloud/github-team/latest) Terraform module. It provides a way to deploy the module with a set of default values.
+This repository is a wrapper for the [IbdaaiCloud/github-team](https://registry.terraform.io/modules/IbdaaiCloud/team/github/latest) Terraform module. It provides a way to deploy the module with a set of default values.
 
 ## Usage
 
@@ -120,13 +120,14 @@ inputs = {
 > The `version` argument is omitted in the example's `source` block. It is strongly recommended to specify a version to ensure stability and avoid unexpected changes due to future updates. Use a version constraint like `version = "~> x.x.x"` in your project to lock the module to a compatible release.
 
 <!-- BEGIN_TF_DOCS -->
+
 ## Requirements
 
-| Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.0 |
-| <a name="requirement_github"></a> [github](#requirement\_github) | >= 6.4.0 |
-| <a name="requirement_null"></a> [null](#requirement\_null) | >= 3.2.3 |
+| Name                                                                     | Version   |
+| ------------------------------------------------------------------------ | --------- |
+| <a name="requirement_terraform"></a> [terraform](#requirement_terraform) | >= 0.13.0 |
+| <a name="requirement_github"></a> [github](#requirement_github)          | >= 6.4.0  |
+| <a name="requirement_null"></a> [null](#requirement_null)                | >= 3.2.3  |
 
 ## Providers
 
@@ -134,9 +135,9 @@ No providers.
 
 ## Modules
 
-| Name | Source | Version |
-|------|--------|---------|
-| <a name="module_wrapper"></a> [wrapper](#module\_wrapper) | ../ | n/a |
+| Name                                                     | Source | Version |
+| -------------------------------------------------------- | ------ | ------- |
+| <a name="module_wrapper"></a> [wrapper](#module_wrapper) | ../    | n/a     |
 
 ## Resources
 
@@ -144,16 +145,17 @@ No resources.
 
 ## Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| <a name="input_defaults"></a> [defaults](#input\_defaults) | Map of default values which will be used for each item. | `any` | `{}` | no |
-| <a name="input_items"></a> [items](#input\_items) | Maps of items to create a wrapper from. Values are passed through to the module. | `any` | `{}` | no |
+| Name                                                      | Description                                                                      | Type  | Default | Required |
+| --------------------------------------------------------- | -------------------------------------------------------------------------------- | ----- | ------- | :------: |
+| <a name="input_defaults"></a> [defaults](#input_defaults) | Map of default values which will be used for each item.                          | `any` | `{}`    |    no    |
+| <a name="input_items"></a> [items](#input_items)          | Maps of items to create a wrapper from. Values are passed through to the module. | `any` | `{}`    |    no    |
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| <a name="output_wrapper"></a> [wrapper](#output\_wrapper) | Map of outputs of a wrapper. |
+| Name                                                     | Description                  |
+| -------------------------------------------------------- | ---------------------------- |
+| <a name="output_wrapper"></a> [wrapper](#output_wrapper) | Map of outputs of a wrapper. |
+
 <!-- END_TF_DOCS -->
 
 ## License
