@@ -162,19 +162,20 @@ inputs = {
 ```
 
 <!-- BEGIN_TF_DOCS -->
-
 ## Requirements
 
-| Name                                                                     | Version   |
-| ------------------------------------------------------------------------ | --------- |
-| <a name="requirement_terraform"></a> [terraform](#requirement_terraform) | >= 0.13.0 |
-| <a name="requirement_github"></a> [github](#requirement_github)          | >= 6.4.0  |
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.0 |
+| <a name="requirement_github"></a> [github](#requirement\_github) | >= 6.4.0 |
+| <a name="requirement_null"></a> [null](#requirement\_null) | >= 3.2.3 |
 
 ## Providers
 
-| Name                                                      | Version  |
-| --------------------------------------------------------- | -------- |
-| <a name="provider_github"></a> [github](#provider_github) | >= 6.4.0 |
+| Name | Version |
+|------|---------|
+| <a name="provider_github"></a> [github](#provider\_github) | >= 6.4.0 |
+| <a name="provider_null"></a> [null](#provider\_null) | >= 3.2.3 |
 
 ## Modules
 
@@ -182,48 +183,41 @@ No modules.
 
 ## Resources
 
-| Name                                                                                                                          | Type     |
-| ----------------------------------------------------------------------------------------------------------------------------- | -------- |
-| [github_team.this](https://registry.terraform.io/providers/hashicorp/github/latest/docs/resources/team)                       | resource |
+| Name | Type |
+|------|------|
+| [github_team.this](https://registry.terraform.io/providers/hashicorp/github/latest/docs/resources/team) | resource |
 | [github_team_membership.this](https://registry.terraform.io/providers/hashicorp/github/latest/docs/resources/team_membership) | resource |
 | [github_team_repository.this](https://registry.terraform.io/providers/hashicorp/github/latest/docs/resources/team_repository) | resource |
+| [null_resource.validate_team_name](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
 
 ## Inputs
 
-| Name                                                                                                                        | Description                                                                                                                                                                                      | Type                                                                                                                                                            | Default | Required |
-| --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | :------: |
-| <a name="input_enable_team_creation"></a> [enable_team_creation](#input_enable_team_creation)                               | (Optional) Whether to enable the creation of the GitHub team. Defaults to false.                                                                                                                 | `bool`                                                                                                                                                          | `false` |    no    |
-| <a name="input_team_name"></a> [team_name](#input_team_name)                                                                | (Required) The name of the GitHub team.                                                                                                                                                          | `string`                                                                                                                                                        | n/a     |   yes    |
-| <a name="input_team_description"></a> [team_description](#input_team_description)                                           | (Optional) The description of the GitHub team.                                                                                                                                                   | `string`                                                                                                                                                        | `null`  |    no    |
-| <a name="input_team_privacy"></a> [team_privacy](#input_team_privacy)                                                       | (Optional) The privacy level of the GitHub team. Can be one of `secret` or `closed`. Defaults to `secret`.                                                                                       | `string`                                                                                                                                                        | `null`  |    no    |
-| <a name="input_team_parent_team_id"></a> [team_parent_team_id](#input_team_parent_team_id)                                  | (Optional) The ID of the parent team for this team.                                                                                                                                              | `string`                                                                                                                                                        | `null`  |    no    |
-| <a name="input_team_ldap_dn"></a> [team_ldap_dn](#input_team_ldap_dn)                                                       | (Optional) The LDAP Distinguished Name (DN) to bind to the GitHub team.                                                                                                                          | `string`                                                                                                                                                        | `null`  |    no    |
-| <a name="input_team_create_default_maintainer"></a> [team_create_default_maintainer](#input_team_create_default_maintainer) | (Optional) Whether to create a default maintainer for the GitHub team. Defaults to false.                                                                                                        | `bool`                                                                                                                                                          | `false` |    no    |
-| <a name="input_enable_team_memberships"></a> [enable_team_memberships](#input_enable_team_memberships)                      | (Optional) Whether to enable the management of team memberships. Defaults to false.                                                                                                              | `bool`                                                                                                                                                          | `false` |    no    |
-| <a name="input_team_membership_team_id"></a> [team_membership_team_id](#input_team_membership_team_id)                      | (Optional) The ID of the GitHub team for which to manage memberships.                                                                                                                            | `string`                                                                                                                                                        | `null`  |    no    |
-| <a name="input_team_membership_maintainers"></a> [team_membership_maintainers](#input_team_membership_maintainers)          | (Optional) A list of usernames to be added as maintainers to the GitHub team.                                                                                                                    | `list(string)`                                                                                                                                                  | `[]`    |    no    |
-| <a name="input_team_membership_members"></a> [team_membership_members](#input_team_membership_members)                      | (Optional) A list of usernames to be added as members to the GitHub team.                                                                                                                        | `list(string)`                                                                                                                                                  | `[]`    |    no    |
-| <a name="input_enable_repository_permissions"></a> [enable_repository_permissions](#input_enable_repository_permissions)    | (Optional) Whether to enable the management of repository permissions for the GitHub team. Defaults to false.                                                                                    | `bool`                                                                                                                                                          | `false` |    no    |
-| <a name="input_team_repository_team_id"></a> [team_repository_team_id](#input_team_repository_team_id)                      | (Optional) The ID of the GitHub team for which to manage repository permissions.                                                                                                                 | `string`                                                                                                                                                        | `null`  |    no    |
-| <a name="input_team_repository_permissions"></a> [team_repository_permissions](#input_team_repository_permissions)          | (Optional) A map of repository permissions for the GitHub team. The keys are the permission levels (`admin`, `maintain`, `push`, `triage`, `pull`) and the values are lists of repository names. | <pre>object({<br/> admin = list(string)<br/> maintain = list(string)<br/> push = list(string)<br/> triage = list(string)<br/> pull = list(string)<br/> })</pre> | `{}`    |    no    |
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_enable_repository_permissions"></a> [enable\_repository\_permissions](#input\_enable\_repository\_permissions) | (Required) Whether the team repository permissions should be enabled. Defaults to false. If set to true, the team repository permissions will be created. | `bool` | `false` | no |
+| <a name="input_enable_team_creation"></a> [enable\_team\_creation](#input\_enable\_team\_creation) | (Required) Whether the team should be enabled. Defaults to false. If set to true, the team will be created. | `bool` | `false` | no |
+| <a name="input_enable_team_memberships"></a> [enable\_team\_memberships](#input\_enable\_team\_memberships) | (Required) Whether the team memberships should be enabled. Defaults to false. If set to true, the team memberships will be created. | `bool` | `false` | no |
+| <a name="input_team_create_default_maintainer"></a> [team\_create\_default\_maintainer](#input\_team\_create\_default\_maintainer) | (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`. | `bool` | `false` | no |
+| <a name="input_team_description"></a> [team\_description](#input\_team\_description) | (Optional) The description of the team. | `string` | `null` | no |
+| <a name="input_team_ldap_dn"></a> [team\_ldap\_dn](#input\_team\_ldap\_dn) | (Optional) The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server. | `string` | `null` | no |
+| <a name="input_team_membership_maintainers"></a> [team\_membership\_maintainers](#input\_team\_membership\_maintainers) | (Required) The list of maintainers to add to the team. | `list(string)` | `[]` | no |
+| <a name="input_team_membership_members"></a> [team\_membership\_members](#input\_team\_membership\_members) | (Required) The list of members to add to the team. | `list(string)` | `[]` | no |
+| <a name="input_team_membership_team_id"></a> [team\_membership\_team\_id](#input\_team\_membership\_team\_id) | (Required) The GitHub team id or the GitHub team slug to add the members to. | `number` | `null` | no |
+| <a name="input_team_name"></a> [team\_name](#input\_team\_name) | (Required) The name of the team. | `string` | `null` | no |
+| <a name="input_team_parent_team_id"></a> [team\_parent\_team\_id](#input\_team\_parent\_team\_id) | (Optional) The ID or slug of the parent team, if this is a nested team. | `number` | `null` | no |
+| <a name="input_team_privacy"></a> [team\_privacy](#input\_team\_privacy) | (Optional) The level of privacy for the team. Must be one of `secret` or `closed`. Defaults to `secret`. | `string` | `"secret"` | no |
+| <a name="input_team_repository_permissions"></a> [team\_repository\_permissions](#input\_team\_repository\_permissions) | (Required) The list of repositories to add to the team with specific permissions. The key is the permission and the value is the list of repositories. The permissions must be one of `admin`, `maintain`, `push`, `triage`, or `pull`.<br/><br/>  admin    - (Optional) The list of repositories that the team has admin access to.<br/>  maintain - (Optional) The list of repositories that the team has maintain access to.<br/>  push     - (Optional) The list of repositories that the team has push access to.<br/>  triage   - (Optional) The list of repositories that the team has triage access to.<br/>  pull     - (Optional) The list of repositories that the team has pull access to. | <pre>object({<br/>    admin    = optional(list(string))<br/>    maintain = optional(list(string))<br/>    push     = optional(list(string))<br/>    triage   = optional(list(string))<br/>    pull     = optional(list(string))<br/>  })</pre> | <pre>{<br/>  "admin": [],<br/>  "maintain": [],<br/>  "pull": [],<br/>  "push": [],<br/>  "triage": []<br/>}</pre> | no |
+| <a name="input_team_repository_team_id"></a> [team\_repository\_team\_id](#input\_team\_repository\_team\_id) | (Required) The GitHub team id or the GitHub team slug to add the repositories to. | `number` | `null` | no |
 
 ## Outputs
 
-| Name                                                                                                                          | Description                                                                                                                           |
-| ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| <a name="output_team_id"></a> [team_id](#output_team_id)                                                                      | The ID of the GitHub team.                                                                                                            |
-| <a name="output_team_name"></a> [team_name](#output_team_name)                                                                | The name of the GitHub team.                                                                                                          |
-| <a name="output_team_description"></a> [team_description](#output_team_description)                                           | The description of the GitHub team.                                                                                                   |
-| <a name="output_team_privacy"></a> [team_privacy](#output_team_privacy)                                                       | The privacy level of the GitHub team.                                                                                                 |
-| <a name="output_team_parent_team_id"></a> [team_parent_team_id](#output_team_parent_team_id)                                  | The ID of the parent team for this team.                                                                                              |
-| <a name="output_team_ldap_dn"></a> [team_ldap_dn](#output_team_ldap_dn)                                                       | The LDAP Distinguished Name (DN) of the GitHub team.                                                                                  |
-| <a name="output_team_create_default_maintainer"></a> [team_create_default_maintainer](#output_team_create_default_maintainer) | Whether a default maintainer was created for the GitHub team.                                                                         |
-| <a name="output_team_membership_team_id"></a> [team_membership_team_id](#output_team_membership_team_id)                      | The ID of the GitHub team for which memberships are managed.                                                                          |
-| <a name="output_team_membership_maintainers"></a> [team_membership_maintainers](#output_team_membership_maintainers)          | A list of usernames added as maintainers to the GitHub team.                                                                          |
-| <a name="output_team_membership_members"></a> [team_membership_members](#output_team_membership_members)                      | A list of usernames added as members to the GitHub team.                                                                              |
-| <a name="output_team_repository_team_id"></a> [team_repository_team_id](#output_team_repository_team_id)                      | The ID of the GitHub team for which repository permissions are managed.                                                               |
-| <a name="output_team_repository_permissions"></a> [team_repository_permissions](#output_team_repository_permissions)          | A map of repository permissions for the GitHub team. The keys are the permission levels and the values are lists of repository names. |
-
+| Name | Description |
+|------|-------------|
+| <a name="output_team_id"></a> [team\_id](#output\_team\_id) | The ID of the created team. |
+| <a name="output_team_membership_memberships"></a> [team\_membership\_memberships](#output\_team\_membership\_memberships) | The list of team memberships. |
+| <a name="output_team_node_id"></a> [team\_node\_id](#output\_team\_node\_id) | The Node ID of the created team. |
+| <a name="output_team_repository_repositories"></a> [team\_repository\_repositories](#output\_team\_repository\_repositories) | The list of team repositories. |
+| <a name="output_team_slug"></a> [team\_slug](#output\_team\_slug) | The slug of the created team, which may or may not differ from `name`, depending on whether `name` contains "URL-unsafe" characters. Useful when referencing the team in [github\_branch\_protection](https://registry.terraform.io/docs/providers/github/r/branch_protection). |
 <!-- END_TF_DOCS -->
 
 ## License
