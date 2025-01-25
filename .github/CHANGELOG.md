@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+### [2.0.1](https://github.com/IbdaaiCloud/terraform-github-team/compare/v2.0.0...v2.0.1) (2025-01-25)
+
+
+### Bug Fixes
+
+* update links in README.md for Terraform module ([0fe369e](https://github.com/IbdaaiCloud/terraform-github-team/commit/0fe369e714be414c2a91611e88313f8122563326))
+
 ## [2.0.0](https://github.com/IbdaaiCloud/terraform-github-team/compare/v1.0.0...v2.0.0) (2025-01-25)
 
 
