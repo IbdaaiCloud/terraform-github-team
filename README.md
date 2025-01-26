@@ -40,7 +40,7 @@ The following example demonstrates how to use the module to create a GitHub team
 
 ```hcl
 module "github_team" {
-  source  = "IbdaaiCloud/team/github"
+  source = "IbdaaiCloud/team/github"
   # version = "x.y.z" # Use the latest version from the Terraform Registry
 
   enable_team_creation           = true
@@ -51,7 +51,7 @@ module "github_team" {
   team_ldap_dn                   = null
   team_create_default_maintainer = false
 
-  enable_team_memberships = true
+  enable_team_memberships_creation = true
   team_membership_maintainers = [
     "User0",
   ]
@@ -61,7 +61,7 @@ module "github_team" {
     "User3",
   ]
 
-  enable_repository_permissions = true
+  enable_repository_permissions_creation = true
   team_repository_permissions = {
     admin    = ["repo1"]
     maintain = ["repo2"]
@@ -91,13 +91,13 @@ module "github_team_wrapper" {
   # version = "x.y.z" # Use the latest version from the Terraform Registry
 
   defaults = {
-    enable_team_creation           = true
-    team_privacy                   = "secret"
-    team_parent_team_id            = null
-    team_ldap_dn                   = null
-    team_create_default_maintainer = false
-    enable_team_memberships        = true
-    enable_repository_permissions  = true
+    enable_team_creation                   = true
+    team_privacy                           = "secret"
+    team_parent_team_id                    = null
+    team_ldap_dn                           = null
+    team_create_default_maintainer         = false
+    enable_team_memberships_creation       = true
+    enable_repository_permissions_creation = true
     team_repository_permissions = {
       admin    = []
       maintain = []
@@ -131,13 +131,13 @@ terraform {
 
 inputs = {
   defaults = {
-    enable_team_creation           = true
-    team_privacy                   = "secret"
-    team_parent_team_id            = null
-    team_ldap_dn                   = null
-    team_create_default_maintainer = false
-    enable_team_memberships        = true
-    enable_repository_permissions  = true
+    enable_team_creation                   = true
+    team_privacy                           = "secret"
+    team_parent_team_id                    = null
+    team_ldap_dn                           = null
+    team_create_default_maintainer         = false
+    enable_team_memberships_creation       = true
+    enable_repository_permissions_creation = true
     team_repository_permissions = {
       admin    = []
       maintain = []
@@ -162,20 +162,10 @@ inputs = {
 ```
 
 <!-- BEGIN_TF_DOCS -->
+
 ## Requirements
 
-| Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.0 |
-| <a name="requirement_github"></a> [github](#requirement\_github) | >= 6.4.0 |
-| <a name="requirement_null"></a> [null](#requirement\_null) | >= 3.2.3 |
-
 ## Providers
-
-| Name | Version |
-|------|---------|
-| <a name="provider_github"></a> [github](#provider\_github) | >= 6.4.0 |
-| <a name="provider_null"></a> [null](#provider\_null) | >= 3.2.3 |
 
 ## Modules
 
@@ -183,41 +173,10 @@ No modules.
 
 ## Resources
 
-| Name | Type |
-|------|------|
-| [github_team.this](https://registry.terraform.io/providers/hashicorp/github/latest/docs/resources/team) | resource |
-| [github_team_membership.this](https://registry.terraform.io/providers/hashicorp/github/latest/docs/resources/team_membership) | resource |
-| [github_team_repository.this](https://registry.terraform.io/providers/hashicorp/github/latest/docs/resources/team_repository) | resource |
-| [null_resource.validate_team_name](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
-
 ## Inputs
-
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| <a name="input_enable_repository_permissions_creation"></a> [enable\_repository\_permissions\_creation](#input\_enable\_repository\_permissions\_creation) | (Required) Whether the team repository permissions should be enabled. Defaults to false. If set to true, the team repository permissions will be created. | `bool` | `false` | no |
-| <a name="input_enable_team_creation"></a> [enable\_team\_creation](#input\_enable\_team\_creation) | (Required) Whether the team should be enabled. Defaults to false. If set to true, the team will be created. | `bool` | `false` | no |
-| <a name="input_enable_team_memberships_creation"></a> [enable\_team\_memberships\_creation](#input\_enable\_team\_memberships\_creation) | (Required) Whether the team memberships should be enabled. Defaults to false. If set to true, the team memberships will be created. | `bool` | `false` | no |
-| <a name="input_team_create_default_maintainer"></a> [team\_create\_default\_maintainer](#input\_team\_create\_default\_maintainer) | (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`. | `bool` | `false` | no |
-| <a name="input_team_description"></a> [team\_description](#input\_team\_description) | (Optional) The description of the team. | `string` | `null` | no |
-| <a name="input_team_ldap_dn"></a> [team\_ldap\_dn](#input\_team\_ldap\_dn) | (Optional) The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server. | `string` | `null` | no |
-| <a name="input_team_membership_maintainers"></a> [team\_membership\_maintainers](#input\_team\_membership\_maintainers) | (Required) The list of maintainers to add to the team. | `list(string)` | `[]` | no |
-| <a name="input_team_membership_members"></a> [team\_membership\_members](#input\_team\_membership\_members) | (Required) The list of members to add to the team. | `list(string)` | `[]` | no |
-| <a name="input_team_membership_team_id"></a> [team\_membership\_team\_id](#input\_team\_membership\_team\_id) | (Required) The GitHub team id or the GitHub team slug to add the members to. | `number` | `null` | no |
-| <a name="input_team_name"></a> [team\_name](#input\_team\_name) | (Required) The name of the team. | `string` | `null` | no |
-| <a name="input_team_parent_team_id"></a> [team\_parent\_team\_id](#input\_team\_parent\_team\_id) | (Optional) The ID or slug of the parent team, if this is a nested team. | `number` | `null` | no |
-| <a name="input_team_privacy"></a> [team\_privacy](#input\_team\_privacy) | (Optional) The level of privacy for the team. Must be one of `secret` or `closed`. Defaults to `secret`. | `string` | `"secret"` | no |
-| <a name="input_team_repository_permissions"></a> [team\_repository\_permissions](#input\_team\_repository\_permissions) | (Required) The list of repositories to add to the team with specific permissions. The key is the permission and the value is the list of repositories. The permissions must be one of `admin`, `maintain`, `push`, `triage`, or `pull`.<br/><br/>  admin    - (Optional) The list of repositories that the team has admin access to.<br/>  maintain - (Optional) The list of repositories that the team has maintain access to.<br/>  push     - (Optional) The list of repositories that the team has push access to.<br/>  triage   - (Optional) The list of repositories that the team has triage access to.<br/>  pull     - (Optional) The list of repositories that the team has pull access to. | <pre>object({<br/>    admin    = list(string)<br/>    maintain = list(string)<br/>    push     = list(string)<br/>    triage   = list(string)<br/>    pull     = list(string)<br/>  })</pre> | <pre>{<br/>  "admin": [],<br/>  "maintain": [],<br/>  "pull": [],<br/>  "push": [],<br/>  "triage": []<br/>}</pre> | no |
-| <a name="input_team_repository_team_id"></a> [team\_repository\_team\_id](#input\_team\_repository\_team\_id) | (Required) The GitHub team id or the GitHub team slug to add the repositories to. | `number` | `null` | no |
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| <a name="output_team_id"></a> [team\_id](#output\_team\_id) | The ID of the created team. |
-| <a name="output_team_membership_memberships"></a> [team\_membership\_memberships](#output\_team\_membership\_memberships) | The list of team memberships. |
-| <a name="output_team_node_id"></a> [team\_node\_id](#output\_team\_node\_id) | The Node ID of the created team. |
-| <a name="output_team_repository_repositories"></a> [team\_repository\_repositories](#output\_team\_repository\_repositories) | The list of team repositories. |
-| <a name="output_team_slug"></a> [team\_slug](#output\_team\_slug) | The slug of the created team, which may or may not differ from `name`, depending on whether `name` contains "URL-unsafe" characters. Useful when referencing the team in [github\_branch\_protection](https://registry.terraform.io/docs/providers/github/r/branch_protection). |
 <!-- END_TF_DOCS -->
 
 ## License

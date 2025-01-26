@@ -46,13 +46,13 @@ module "github_team" {
   # version = "x.y.z" # Use the latest version from the Terraform Registry
 
   defaults = {
-    enable_team_creation           = true
-    team_privacy                   = "secret"
-    team_parent_team_id            = null
-    team_ldap_dn                   = null
-    team_create_default_maintainer = false
-    enable_team_memberships        = true
-    enable_repository_permissions  = true
+    enable_team_creation                   = true
+    team_privacy                           = "secret"
+    team_parent_team_id                    = null
+    team_ldap_dn                           = null
+    team_create_default_maintainer         = false
+    enable_team_memberships_creation       = true
+    enable_repository_permissions_creation = true
     team_repository_permissions = {
       admin    = []
       maintain = []
@@ -86,13 +86,13 @@ terraform {
 
 inputs = {
   defaults = {
-    enable_team_creation           = true
-    team_privacy                   = "secret"
-    team_parent_team_id            = null
-    team_ldap_dn                   = null
-    team_create_default_maintainer = false
-    enable_team_memberships        = true
-    enable_repository_permissions  = true
+    enable_team_creation                   = true
+    team_privacy                           = "secret"
+    team_parent_team_id                    = null
+    team_ldap_dn                           = null
+    team_create_default_maintainer         = false
+    enable_team_memberships_creation       = true
+    enable_repository_permissions_creation = true
     team_repository_permissions = {
       admin    = []
       maintain = []
@@ -114,19 +114,17 @@ inputs = {
     }
   }
 }
+
 ```
 
 > [!WARNING]
 > The `version` argument is omitted in the example's `source` block. It is strongly recommended to specify a version to ensure stability and avoid unexpected changes due to future updates. Use a version constraint like `version = "~> x.x.x"` in your project to lock the module to a compatible release.
 
 <!-- BEGIN_TF_DOCS -->
+
 ## Requirements
 
-| Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.0 |
-| <a name="requirement_github"></a> [github](#requirement\_github) | >= 6.4.0 |
-| <a name="requirement_null"></a> [null](#requirement\_null) | >= 3.2.3 |
+| <a name="requirement_null"></a> [null](#requirement_null) | >= 3.2.3 |
 
 ## Providers
 
@@ -134,26 +132,14 @@ No providers.
 
 ## Modules
 
-| Name | Source | Version |
-|------|--------|---------|
-| <a name="module_wrapper"></a> [wrapper](#module\_wrapper) | ../ | n/a |
-
 ## Resources
 
 No resources.
 
 ## Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| <a name="input_defaults"></a> [defaults](#input\_defaults) | Map of default values which will be used for each item. | `any` | `{}` | no |
-| <a name="input_items"></a> [items](#input\_items) | Maps of items to create a wrapper from. Values are passed through to the module. | `any` | `{}` | no |
-
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| <a name="output_wrapper"></a> [wrapper](#output\_wrapper) | Map of outputs of a wrapper. |
 <!-- END_TF_DOCS -->
 
 ## License
