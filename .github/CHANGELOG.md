@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.0](https://github.com/IbdaaiCloud/terraform-github-team/compare/v2.0.1...v3.0.0) (2025-01-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* rename variables for team memberships and repository permissions creation
+
+### Bug Fixes
+
+* rename variables for team memberships and repository permissions creation ([bf7473f](https://github.com/IbdaaiCloud/terraform-github-team/commit/bf7473fefb7a455258c0f91c52c7e82214d662df))
+* update variable names for team memberships and repository permissions creation in documentation ([969059a](https://github.com/IbdaaiCloud/terraform-github-team/commit/969059a71ebdadb740f92a313aa6c6474175eb23))
+
 ### [2.0.1](https://github.com/IbdaaiCloud/terraform-github-team/compare/v2.0.0...v2.0.1) (2025-01-25)
 
 
