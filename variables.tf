@@ -10,7 +10,7 @@ EOF
   default     = false
 }
 
-variable "enable_team_memberships" {
+variable "enable_team_memberships_creation" {
   type        = bool
   description = <<EOF
   (Required) Whether the team memberships should be enabled. Defaults to false. If set to true, the team memberships will be created.
@@ -18,7 +18,7 @@ EOF
   default     = false
 }
 
-variable "enable_repository_permissions" {
+variable "enable_repository_permissions_creation" {
   type        = bool
   description = <<EOF
   (Required) Whether the team repository permissions should be enabled. Defaults to false. If set to true, the team repository permissions will be created.

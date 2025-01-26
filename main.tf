@@ -97,7 +97,7 @@ resource "null_resource" "validate_team_name" {
 # https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_membership
 
 resource "github_team_membership" "this" {
-  for_each = var.enable_team_memberships && can(length(local.team_membership_memberships)) ? local.team_membership_memberships : {}
+  for_each = var.enable_team_memberships_creation && can(length(local.team_membership_memberships)) ? local.team_membership_memberships : {}
 
   team_id  = local.team_membership_team_id
   username = each.value.username
@@ -111,7 +111,7 @@ resource "github_team_membership" "this" {
 # https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_repository
 
 resource "github_team_repository" "this" {
-  for_each = var.enable_repository_permissions && can(length(local.team_repository_repositories_map)) ? local.team_repository_repositories_map : {}
+  for_each = var.enable_repository_permissions_creation && can(length(local.team_repository_repositories_map)) ? local.team_repository_repositories_map : {}
 
   team_id    = local.team_repository_team_id
   repository = each.value.repository

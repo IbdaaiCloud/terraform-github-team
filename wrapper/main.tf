@@ -17,16 +17,16 @@ module "wrapper" {
   #---------------------------------------------------
   # GitHub Team Membership
   #---------------------------------------------------
-  enable_team_memberships     = try(each.value.enable_team_memberships, var.defaults.enable_team_memberships, false)
-  team_membership_team_id     = try(each.value.team_membership_team_id, var.defaults.team_membership_team_id, null)
-  team_membership_maintainers = try(each.value.team_membership_maintainers, var.defaults.team_membership_maintainers, null)
-  team_membership_members     = try(each.value.team_membership_members, var.defaults.team_membership_members, null)
+  enable_team_memberships_creation = try(each.value.enable_team_memberships_creation, var.defaults.enable_team_memberships_creation, false)
+  team_membership_team_id          = try(each.value.team_membership_team_id, var.defaults.team_membership_team_id, null)
+  team_membership_maintainers      = try(each.value.team_membership_maintainers, var.defaults.team_membership_maintainers, null)
+  team_membership_members          = try(each.value.team_membership_members, var.defaults.team_membership_members, null)
 
   #---------------------------------------------------
   # GitHub Team Repository
   #---------------------------------------------------
-  enable_repository_permissions = try(each.value.enable_repository_permissions, var.defaults.enable_repository_permissions, false)
-  team_repository_team_id       = try(each.value.team_repository_team_id, var.defaults.team_repository_team_id, null)
+  enable_repository_permissions_creation = try(each.value.enable_repository_permissions_creation, var.defaults.enable_repository_permissions_creation, false)
+  team_repository_team_id                = try(each.value.team_repository_team_id, var.defaults.team_repository_team_id, null)
   team_repository_permissions = {
     admin    = try(each.value.team_repository_permissions.admin, var.defaults.team_repository_permissions.admin, [])
     maintain = try(each.value.team_repository_permissions.maintain, var.defaults.team_repository_permissions.maintain, [])

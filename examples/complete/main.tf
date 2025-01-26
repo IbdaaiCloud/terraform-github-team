@@ -37,7 +37,7 @@ module "team_configuration" {
   #---------------------------------------------------
   # GitHub Team Membership
   #---------------------------------------------------
-  enable_team_memberships = true
+  enable_team_memberships_creation = true
   team_membership_maintainers = [
     "User0",
   ]
@@ -50,7 +50,7 @@ module "team_configuration" {
   #---------------------------------------------------
   # GitHub Team Repository
   #---------------------------------------------------
-  enable_repository_permissions = true
+  enable_repository_permissions_creation = true
   team_repository_permissions = {
     admin    = [github_repository.qa_repo.name]
     maintain = [github_repository.py_dev_repo.name]
