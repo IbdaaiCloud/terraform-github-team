@@ -13,8 +13,8 @@ module "team_membership" {
   source = "IbdaaiCloud/team/github"
   # version = "x.y.z" # Use the latest version from the Terraform Registry
 
-  enable_team_memberships = true
-  team_membership_team_id = github_team.this.id
+  enable_team_memberships_creation = true
+  team_membership_team_id          = github_team.this.id
   team_membership_maintainers = [
     "User0",
   ]

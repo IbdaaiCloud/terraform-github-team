@@ -51,12 +51,12 @@ module "team_configuration_wrapper" {
     #---------------------------------------------------
     # GitHub Team Membership
     #---------------------------------------------------
-    enable_team_memberships = true
+    enable_team_memberships_creation = true
 
     #---------------------------------------------------
     # GitHub Team Repository
     #---------------------------------------------------
-    enable_repository_permissions = true
+    enable_repository_permissions_creation = true
     team_repository_permissions = {
       admin    = []
       maintain = []

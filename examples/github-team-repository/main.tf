@@ -31,8 +31,8 @@ module "team_repository" {
   source = "IbdaaiCloud/team/github"
   # version = "x.y.z" # Use the latest version from the Terraform Registry
 
-  enable_repository_permissions = true
-  team_repository_team_id       = github_team.qa_team.id
+  enable_repository_permissions_creation = true
+  team_repository_team_id                = github_team.qa_team.id
   team_repository_permissions = {
     admin    = [github_repository.qa_repo.name]
     maintain = [github_repository.py_dev_repo.name]

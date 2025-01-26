@@ -40,7 +40,7 @@ The following example demonstrates how to use the module to create a GitHub team
 
 ```hcl
 module "github_team" {
-  source  = "IbdaaiCloud/team/github"
+  source = "IbdaaiCloud/team/github"
   # version = "x.y.z" # Use the latest version from the Terraform Registry
 
   enable_team_creation           = true
@@ -51,7 +51,7 @@ module "github_team" {
   team_ldap_dn                   = null
   team_create_default_maintainer = false
 
-  enable_team_memberships = true
+  enable_team_memberships_creation = true
   team_membership_maintainers = [
     "User0",
   ]
@@ -61,7 +61,7 @@ module "github_team" {
     "User3",
   ]
 
-  enable_repository_permissions = true
+  enable_repository_permissions_creation = true
   team_repository_permissions = {
     admin    = ["repo1"]
     maintain = ["repo2"]
@@ -91,13 +91,13 @@ module "github_team_wrapper" {
   # version = "x.y.z" # Use the latest version from the Terraform Registry
 
   defaults = {
-    enable_team_creation           = true
-    team_privacy                   = "secret"
-    team_parent_team_id            = null
-    team_ldap_dn                   = null
-    team_create_default_maintainer = false
-    enable_team_memberships        = true
-    enable_repository_permissions  = true
+    enable_team_creation                   = true
+    team_privacy                           = "secret"
+    team_parent_team_id                    = null
+    team_ldap_dn                           = null
+    team_create_default_maintainer         = false
+    enable_team_memberships_creation       = true
+    enable_repository_permissions_creation = true
     team_repository_permissions = {
       admin    = []
       maintain = []
@@ -131,13 +131,13 @@ terraform {
 
 inputs = {
   defaults = {
-    enable_team_creation           = true
-    team_privacy                   = "secret"
-    team_parent_team_id            = null
-    team_ldap_dn                   = null
-    team_create_default_maintainer = false
-    enable_team_memberships        = true
-    enable_repository_permissions  = true
+    enable_team_creation                   = true
+    team_privacy                           = "secret"
+    team_parent_team_id                    = null
+    team_ldap_dn                           = null
+    team_create_default_maintainer         = false
+    enable_team_memberships_creation       = true
+    enable_repository_permissions_creation = true
     team_repository_permissions = {
       admin    = []
       maintain = []
@@ -194,9 +194,9 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_enable_repository_permissions"></a> [enable\_repository\_permissions](#input\_enable\_repository\_permissions) | (Required) Whether the team repository permissions should be enabled. Defaults to false. If set to true, the team repository permissions will be created. | `bool` | `false` | no |
+| <a name="input_enable_repository_permissions_creation"></a> [enable\_repository\_permissions\_creation](#input\_enable\_repository\_permissions\_creation) | (Required) Whether the team repository permissions should be enabled. Defaults to false. If set to true, the team repository permissions will be created. | `bool` | `false` | no |
 | <a name="input_enable_team_creation"></a> [enable\_team\_creation](#input\_enable\_team\_creation) | (Required) Whether the team should be enabled. Defaults to false. If set to true, the team will be created. | `bool` | `false` | no |
-| <a name="input_enable_team_memberships"></a> [enable\_team\_memberships](#input\_enable\_team\_memberships) | (Required) Whether the team memberships should be enabled. Defaults to false. If set to true, the team memberships will be created. | `bool` | `false` | no |
+| <a name="input_enable_team_memberships_creation"></a> [enable\_team\_memberships\_creation](#input\_enable\_team\_memberships\_creation) | (Required) Whether the team memberships should be enabled. Defaults to false. If set to true, the team memberships will be created. | `bool` | `false` | no |
 | <a name="input_team_create_default_maintainer"></a> [team\_create\_default\_maintainer](#input\_team\_create\_default\_maintainer) | (Optional) Adds a default maintainer to the team. Defaults to `false` and adds the creating user to the team when `true`. | `bool` | `false` | no |
 | <a name="input_team_description"></a> [team\_description](#input\_team\_description) | (Optional) The description of the team. | `string` | `null` | no |
 | <a name="input_team_ldap_dn"></a> [team\_ldap\_dn](#input\_team\_ldap\_dn) | (Optional) The LDAP Distinguished Name of the group where membership will be synchronized. Only available in GitHub Enterprise Server. | `string` | `null` | no |

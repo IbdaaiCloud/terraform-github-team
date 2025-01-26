@@ -46,13 +46,13 @@ module "github_team" {
   # version = "x.y.z" # Use the latest version from the Terraform Registry
 
   defaults = {
-    enable_team_creation           = true
-    team_privacy                   = "secret"
-    team_parent_team_id            = null
-    team_ldap_dn                   = null
-    team_create_default_maintainer = false
-    enable_team_memberships        = true
-    enable_repository_permissions  = true
+    enable_team_creation                   = true
+    team_privacy                           = "secret"
+    team_parent_team_id                    = null
+    team_ldap_dn                           = null
+    team_create_default_maintainer         = false
+    enable_team_memberships_creation       = true
+    enable_repository_permissions_creation = true
     team_repository_permissions = {
       admin    = []
       maintain = []
@@ -86,13 +86,13 @@ terraform {
 
 inputs = {
   defaults = {
-    enable_team_creation           = true
-    team_privacy                   = "secret"
-    team_parent_team_id            = null
-    team_ldap_dn                   = null
-    team_create_default_maintainer = false
-    enable_team_memberships        = true
-    enable_repository_permissions  = true
+    enable_team_creation                   = true
+    team_privacy                           = "secret"
+    team_parent_team_id                    = null
+    team_ldap_dn                           = null
+    team_create_default_maintainer         = false
+    enable_team_memberships_creation       = true
+    enable_repository_permissions_creation = true
     team_repository_permissions = {
       admin    = []
       maintain = []
@@ -114,6 +114,7 @@ inputs = {
     }
   }
 }
+
 ```
 
 > [!WARNING]
