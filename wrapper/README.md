@@ -126,7 +126,7 @@ inputs = {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.0 |
-| <a name="requirement_github"></a> [github](#requirement\_github) | >= 6.4.0 |
+| <a name="requirement_github"></a> [github](#requirement\_github) | >= 6.6.0 |
 | <a name="requirement_null"></a> [null](#requirement\_null) | >= 3.2.3 |
 
 ## Providers

@@ -167,14 +167,14 @@ inputs = {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.0 |
-| <a name="requirement_github"></a> [github](#requirement\_github) | >= 6.4.0 |
+| <a name="requirement_github"></a> [github](#requirement\_github) | >= 6.6.0 |
 | <a name="requirement_null"></a> [null](#requirement\_null) | >= 3.2.3 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_github"></a> [github](#provider\_github) | >= 6.4.0 |
+| <a name="provider_github"></a> [github](#provider\_github) | >= 6.6.0 |
 | <a name="provider_null"></a> [null](#provider\_null) | >= 3.2.3 |
 
 ## Modules
