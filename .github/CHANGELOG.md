@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+### [3.0.1](https://github.com/IbdaaiCloud/terraform-github-team/compare/v3.0.0...v3.0.1) (2025-03-16)
+
+
+### Bug Fixes
+
+* update GitHub provider version to >= 6.6.0 in all relevant files ([670aae0](https://github.com/IbdaaiCloud/terraform-github-team/commit/670aae0a5dae60cd0460c551e8a56edca8c065bb))
+
 ## [3.0.0](https://github.com/IbdaaiCloud/terraform-github-team/compare/v2.0.1...v3.0.0) (2025-01-26)
 
 
