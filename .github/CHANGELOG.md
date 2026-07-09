@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+### [3.0.2](https://github.com/IbdaaiCloud/terraform-github-team/compare/v3.0.1...v3.0.2) (2026-07-09)
+
+
+### Bug Fixes
+
+* **ci:** pin tflint version in pre-commit workflow ([#59](https://github.com/IbdaaiCloud/terraform-github-team/issues/59)) ([e9db67f](https://github.com/IbdaaiCloud/terraform-github-team/commit/e9db67fdc08293d232528a63a4b580c779ecded9))
+
 ### [3.0.1](https://github.com/IbdaaiCloud/terraform-github-team/compare/v3.0.0...v3.0.1) (2025-03-16)
 
 
