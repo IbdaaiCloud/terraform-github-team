@@ -9,6 +9,10 @@ permissions: write-all
 
 env:
   TERRAFORM_DOCS_VERSION: v0.16.0
+  # Pin tflint: the composite action's `latest` path scrapes the GitHub API with a
+  # greedy grep that breaks on the compact JSON responses GitHub sometimes returns
+  # (curl: (3) nested brace). A pinned version uses the deterministic download path.
+  TFLINT_VERSION: v0.63.1
 
 jobs:
   collectInputs:
@@ -57,6 +61,7 @@ jobs:
         uses: clowdhaus/terraform-composite-actions/pre-commit@462243b714d762cbcac6732098e9fdb4ab236cb7 # v1.14.0
         with:
           terraform-version: ${{ steps.minMax.outputs.minVersion }}
+          tflint-version: ${{ env.TFLINT_VERSION }}
           args: "terraform_validate --color=always --show-diff-on-failure --files ${{ matrix.directory }}/*"
 
       - name: Pre-commit Terraform ${{ steps.minMax.outputs.minVersion }}
@@ -65,6 +70,7 @@ jobs:
         uses: clowdhaus/terraform-composite-actions/pre-commit@462243b714d762cbcac6732098e9fdb4ab236cb7 # v1.14.0
         with:
           terraform-version: ${{ steps.minMax.outputs.minVersion }}
+          tflint-version: ${{ env.TFLINT_VERSION }}
           args: "terraform_validate --color=always --show-diff-on-failure --files $(ls *.tf)"
 
   preCommitMaxVersion:
@@ -92,5 +98,6 @@ jobs:
         with:
           terraform-version: ${{ steps.minMax.outputs.maxVersion }}
           terraform-docs-version: ${{ env.TERRAFORM_DOCS_VERSION }}
+          tflint-version: ${{ env.TFLINT_VERSION }}
           install-hcledit: true
           hcledit-version: 0.2.6
